@@ -4,15 +4,17 @@
 </div>
 
 
-<div *ngFor="let movie of movies let index = index" class="movie-container">
-    <div>
-        <b>{{index}}</b> {{movie.title}}
-        <button style="margin-left: 1rem;" (click)="remove(index)">Remove</button>
+<ng-container *ngIf="movies && movies.length > 0">
+    <div *ngFor="let movie of movies let index = index" class="movie-container">
+        <div>
+            <b>{{index}}</b> {{movie.title}}
+            <button style="margin-left: 1rem;" (click)="remove(index)">Remove</button>
+        </div>
+        <div>
+            {{movie.releaseDate | date:'yy/mm/dd'}}
+        </div>
+        <div>
+            {{movie.price | currency:'₦'}}
+        </div>
     </div>
-    <div>
-        {{movie.releaseDate | date:'yy/mm/dd'}}
-    </div>
-    <div>
-        {{movie.price | currency:'₦'}}
-    </div>
-</div>
+</ng-container>
