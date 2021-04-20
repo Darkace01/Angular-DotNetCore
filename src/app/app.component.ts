@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
           price: 135.99
         }
       ];
-    }, 1000);
+    }, 0);
   }
 
 

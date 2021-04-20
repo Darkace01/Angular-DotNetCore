@@ -1,6 +1,10 @@
 <h4>{{title}}</h4>
 <h4>The Doube of 100 is {{duplicateNumber(100)}}</h4>
 <img *ngIf="!movies" src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif">
+<div *ngIf="movies?.lenght == 0">
+  There are no records to display
+</div>
+
 <h1>Movie Data</h1>
 <div *ngFor="let movie of movies let index = index" class="movie-container">
   <div>
