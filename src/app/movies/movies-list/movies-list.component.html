@@ -1,0 +1,17 @@
+<img *ngIf="!movies" src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif">
+<div *ngIf="movies?.lenght == 0">
+    There are no records to display
+</div>
+
+
+<div *ngFor="let movie of movies let index = index" class="movie-container">
+    <div>
+        <b>{{index}}</b> {{movie.title}}
+    </div>
+    <div>
+        {{movie.releaseDate | date:'yy/mm/dd'}}
+    </div>
+    <div>
+        {{movie.price | currency:'₦'}}
+    </div>
+</div>
