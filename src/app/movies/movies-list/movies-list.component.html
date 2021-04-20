@@ -1,5 +1,5 @@
 <img *ngIf="!movies" src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif" height="50">
-<div *ngIf="movies?.lenght == 0">
+<div *ngIf="movies?.length == 0">
     There are no records to display
 </div>
 
@@ -7,6 +7,7 @@
 <div *ngFor="let movie of movies let index = index" class="movie-container">
     <div>
         <b>{{index}}</b> {{movie.title}}
+        <button style="margin-left: 1rem;" (click)="remove(index)">Remove</button>
     </div>
     <div>
         {{movie.releaseDate | date:'yy/mm/dd'}}
