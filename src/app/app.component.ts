@@ -5,9 +5,39 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    this.moviesInTheater = [
+      {
+        title: 'James Bond',
+        releaseDate: new Date(),
+        price: 145.99
+      },
+      {
+        title: 'Bobo yii',
+        releaseDate: new Date('2021-10-12'),
+        price: 135.99
+      }
+    ];
 
-  title = 'angular-movies';
+    this.moviesTrending = [
+      {
+        title: 'Awon Boys',
+        releaseDate: new Date(),
+        price: 145.99
+      },
+      {
+        title: 'Talo yii',
+        releaseDate: new Date('2021-10-12'),
+        price: 135.99
+      }
+    ];
+  }
+
+  moviesInTheater: any;
+  moviesTrending: any;
+  moviesFutureReleases: any;
+  title = 'Jiggy';
 
   duplicateNumber(n: number) {
     return n * 2
