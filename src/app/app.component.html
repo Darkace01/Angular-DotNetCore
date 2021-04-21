@@ -1,6 +1,11 @@
 <app-menu></app-menu>
-
-<app-rating (onRating)="handleRating($event)"></app-rating>
+<div>
+    <input type="text" (input)="title = input.value" #input />
+</div>
+<div>
+    <input type="checkbox" checked (change)="display = !display" />
+</div>
+<app-lifecycletest *ngIf="display" [title]="title"></app-lifecycletest>
 <!-- <div class="container">
     <h1>Trending</h1>
     <app-movies-list [movies]="moviesTrending"></app-movies-list>

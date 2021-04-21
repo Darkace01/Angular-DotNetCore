@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   moviesTrending: any;
   moviesFutureReleases: any;
   title = 'Jiggy';
+  display = true;
 
   duplicateNumber(n: number) {
     return n * 2
