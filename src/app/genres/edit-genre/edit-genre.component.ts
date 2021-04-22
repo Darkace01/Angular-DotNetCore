@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { genreCreateDTO } from '../genres.module';
 @Component({
   selector: 'app-edit-genre',
   templateUrl: './edit-genre.component.html',
@@ -8,11 +8,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditGenreComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
+  model: genreCreateDTO = { name: 'Drama' };
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
     });
   }
-
+  saveChanges(genreCreateDTO: genreCreateDTO) {
+    console.log(genreCreateDTO);
+    this.router.navigate(['/genres']);
+  }
 }
