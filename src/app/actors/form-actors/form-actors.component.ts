@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { actorCreationDTO } from '../actors.model';
+import { actorCreationDTO, actorDTO } from '../actors.model';
 
 @Component({
   selector: 'app-form-actors',
@@ -14,10 +14,10 @@ export class FormActorsComponent implements OnInit {
   form!: FormGroup;
 
   @Input()
-  model!: actorCreationDTO;
+  model!: actorDTO;
 
   @Output()
-  onSaveChanges = new EventEmitter<actorCreationDTO>();
+  onSaveChanges = new EventEmitter<actorDTO>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -25,7 +25,8 @@ export class FormActorsComponent implements OnInit {
         validators: [Validators.required]
       }],
       dateOfBirth: '',
-      picture: ''
+      picture: '',
+      biography: ''
     });
 
     if (this.model !== undefined) {
@@ -39,5 +40,9 @@ export class FormActorsComponent implements OnInit {
 
   saveChanges() {
     this.onSaveChanges.emit(this.form.value)
+  }
+
+  changeMarkdown(content: any) {
+    this.form.get('biography')?.setValue(content);
   }
 }

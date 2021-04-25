@@ -15,7 +15,8 @@ export class EditActorsComponent implements OnInit {
   model: actorDTO = {
     name: 'Sonya',
     dateOfBirth: new Date(),
-    picture: 'https://m.media-amazon.com/images/M/MV5BODBkNTYwZTAtZDMxOC00M2JmLWE0M2UtOGFjNjljMjNkYTU4XkEyXkFqcGdeQXVyNjkxNzc0Mzg@._V1_UX214_CR0,0,214,317_AL_.jpg'
+    picture: 'https://m.media-amazon.com/images/M/MV5BODBkNTYwZTAtZDMxOC00M2JmLWE0M2UtOGFjNjljMjNkYTU4XkEyXkFqcGdeQXVyNjkxNzc0Mzg@._V1_UX214_CR0,0,214,317_AL_.jpg',
+    biography: 'Defualt Biography'
   }
 
   ngOnInit(): void {
@@ -23,7 +24,7 @@ export class EditActorsComponent implements OnInit {
     });
   }
 
-  saveChanges(actorCreationDTO: actorCreationDTO) {
+  saveChanges(actorCreationDTO: actorDTO) {
     console.log(actorCreationDTO);
   }
 }
