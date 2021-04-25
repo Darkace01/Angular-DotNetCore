@@ -24,12 +24,17 @@ export class FormActorsComponent implements OnInit {
       name: ['', {
         validators: [Validators.required]
       }],
-      dateOfBirth: ''
+      dateOfBirth: '',
+      picture: ''
     });
 
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
     }
+  }
+
+  onImageSelected(image: any) {
+    this.form.get('picture')?.setValue(image);
   }
 
   saveChanges() {

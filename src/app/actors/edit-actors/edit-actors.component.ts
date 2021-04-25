@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { actorCreationDTO } from '../actors.model';
+import { actorCreationDTO, actorDTO } from '../actors.model';
 
 @Component({
   selector: 'app-edit-actors',
@@ -12,7 +12,11 @@ export class EditActorsComponent implements OnInit {
   constructor(private activateRoute: ActivatedRoute) { }
 
 
-  model: actorCreationDTO = { name: 'Bobo Yii', dateOfBirth: new Date() }
+  model: actorDTO = {
+    name: 'Sonya',
+    dateOfBirth: new Date(),
+    picture: 'https://m.media-amazon.com/images/M/MV5BODBkNTYwZTAtZDMxOC00M2JmLWE0M2UtOGFjNjljMjNkYTU4XkEyXkFqcGdeQXVyNjkxNzc0Mzg@._V1_UX214_CR0,0,214,317_AL_.jpg'
+  }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(params => {
