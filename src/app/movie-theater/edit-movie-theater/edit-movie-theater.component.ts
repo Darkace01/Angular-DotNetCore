@@ -11,7 +11,7 @@ export class EditMovieTheaterComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
-  model: movieTheatersCreationDTO = { name: 'AMC' }
+  model: movieTheatersCreationDTO = { name: 'AMC', latitude: 51.512611949898044, longitude: -0.12831687927246097 }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
