@@ -31,12 +31,11 @@ export class ActorsAutocompleteComponent implements OnInit {
   ngOnInit(): void {
     this.control.valueChanges.subscribe(value => {
       this.actors = this.originalActors;
-      this.actors = this.actors.filter(actor => actor.name.toLowerCase().indexOf(value.toLowerCase()) !== -1);
+      this.actors = this.actors.filter(actor => actor.name.indexOf(value) !== -1);
     });
   }
 
   optionSelected(event: MatAutocompleteSelectedEvent) {
-    console.log(event.option.value);
     this.selectedActors.push(event.option.value);
     this.control.patchValue('');
     if (this.table !== undefined) {
