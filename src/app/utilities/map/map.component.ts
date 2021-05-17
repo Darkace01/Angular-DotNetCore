@@ -36,7 +36,6 @@ export class MapComponent implements OnInit {
     const latitude = event.latlng.lat;
     const longitude = event.latlng.lng;
     this.layers = [];
-    console.log(latitude, longitude);
     this.layers.push(marker([latitude, longitude]));
     this.onSelectedLocation.emit({ latitude, longitude });
   }
