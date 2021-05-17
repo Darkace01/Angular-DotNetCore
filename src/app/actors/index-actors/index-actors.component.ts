@@ -24,7 +24,9 @@ export class IndexActorsComponent implements OnInit {
   }
 
   delete(id: number) {
-
+    this.actorService.delete(id).subscribe(() => {
+      this.loadData();
+    })
   }
 
   loadData() {

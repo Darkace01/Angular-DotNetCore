@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { actorCreationDTO, actorDTO } from '../actors.model';
+import { ActorsService } from '../actors.service';
 
 @Component({
   selector: 'app-edit-actors',
@@ -9,23 +10,21 @@ import { actorCreationDTO, actorDTO } from '../actors.model';
 })
 export class EditActorsComponent implements OnInit {
 
-  constructor(private activateRoute: ActivatedRoute) { }
+  constructor(private activateRoute: ActivatedRoute, private actorsService: ActorsService
+    , private router: Router) { }
 
 
-  model: actorDTO = {
-    id: 1,
-    name: 'Sonya',
-    dateOfBirth: new Date(),
-    picture: 'https://m.media-amazon.com/images/M/MV5BODBkNTYwZTAtZDMxOC00M2JmLWE0M2UtOGFjNjljMjNkYTU4XkEyXkFqcGdeQXVyNjkxNzc0Mzg@._V1_UX214_CR0,0,214,317_AL_.jpg',
-    biography: 'Defualt Biography'
-  }
+  model!: actorDTO;
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(params => {
+      this.actorsService.getById(params.id).subscribe(actor => this.model = actor);
     });
   }
 
-  saveChanges(actorCreationDTO: actorDTO) {
-    console.log(actorCreationDTO);
+  saveChanges(actorCreationDTO: actorCreationDTO) {
+    this.actorsService.edit(this.model.id, actorCreationDTO).subscribe(() => {
+      this.router.navigate(['/actors']);
+    });
   }
 }
