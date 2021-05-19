@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { coordinatesMap } from 'src/app/utilities/map/coordinate';
-import { movieTheatersCreationDTO, movieTheatersDTO } from '../movie-theater.model';
+import { movieTheaterCreationDTO, movieTheatersDTO } from '../movie-theater.model';
 
 @Component({
   selector: 'app-movie-theater-form',
@@ -18,7 +18,7 @@ export class MovieTheaterFormComponent implements OnInit {
   model!: movieTheatersDTO;
 
   @Output()
-  onSaveChanges = new EventEmitter<movieTheatersCreationDTO>();
+  onSaveChanges = new EventEmitter<movieTheaterCreationDTO>();
 
   initialCoordinates: coordinatesMap[] = [];
 
