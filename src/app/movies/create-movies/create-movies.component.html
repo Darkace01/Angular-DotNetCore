@@ -1,3 +1,6 @@
 <h2>Create Movie</h2>
 
-<app-form-movie (onSaveChanges)="saveChanges($event)"></app-form-movie>
+<app-form-movie *ngIf="nonSelectedGenres && nonSelectedMovieTheaters" [nonSelectedGenres]="nonSelectedGenres"
+    [nonSelectedMovieTheaters]="nonSelectedMovieTheaters" (onSaveChanges)="saveChanges($event)"></app-form-movie>
+
+<mat-spinner *ngIf="!nonSelectedGenres && !nonSelectedGenres"></mat-spinner>
