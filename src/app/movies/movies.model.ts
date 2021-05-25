@@ -1,3 +1,4 @@
+import { actorMovieDTO as actorsMovieDTO } from "../actors/actors.model";
 import { genreDTO } from "../genres/genres.module";
 import { movieTheatersDTO } from "../movie-theater/movie-theater.model";
 
@@ -10,6 +11,7 @@ export interface movieCreationDTO {
     trailer: string;
     genresIds: number[];
     movieTheatersIds: number[];
+    actors: actorsMovieDTO[];
 }
 
 export interface movieDTO {

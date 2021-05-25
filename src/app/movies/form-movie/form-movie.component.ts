@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { actorMovieDTO } from 'src/app/actors/actors.model';
 import { multipleSelectorModel } from 'src/app/utilities/multiple-selector/multiple-selector.model';
 import { movieCreationDTO, movieDTO } from '../movies.model';
 
@@ -30,6 +31,9 @@ export class FormMovieComponent implements OnInit {
 
   selectedMovieTheaters: multipleSelectorModel[] = [];
 
+  @Input()
+  selectedActors: actorMovieDTO[] = [];
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       title: ['', {
@@ -42,6 +46,7 @@ export class FormMovieComponent implements OnInit {
       poster: '',
       genresIds: '',
       movieTheatersIds: '',
+      actors: ''
     });
 
     if (this.model !== undefined) {
@@ -63,6 +68,11 @@ export class FormMovieComponent implements OnInit {
 
     const movieTheatersIds = this.selectedMovieTheaters.map(value => value.key);
     this.form.get('movieTheatersIds')?.setValue(movieTheatersIds);
+
+    const actors = this.selectedActors.map(val => {
+      return { id: val.id, character: val.character }
+    });
+    this.form.get('actors')?.setValue(actors);
 
     this.onSaveChanges.emit(this.form.value);
   }
