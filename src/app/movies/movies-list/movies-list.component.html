@@ -6,14 +6,14 @@
                     <h2><b>{{index}}</b> {{movie.title}}</h2>
                     <!-- <button style="margin-left: 1rem;" (click)="remove(index)">Remove</button> -->
                 </div>
-                <a>
-                    <img [src]="movie.poster" alt="Poster" />
+                <a [routerLink]="'/movies/' + movie.id">
+                    <img [src]="movie.poster" alt="Poster" width="200px" />
                 </a>
                 <p>
-                    <a>{{movie.title}}</a>
+                    <a [routerLink]="'/movies/'+movie.id">{{movie.title}}</a>
                 </p>
                 <div>
-                    <a mat-flat-button color="primary">
+                    <a [routerLink]="'/movies/edit/'+movie.id" mat-flat-button color="primary">
                         Edit
                     </a>
                     <button mat-flat-button color="warn">
