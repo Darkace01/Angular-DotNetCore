@@ -24,11 +24,13 @@ export class FormMovieComponent implements OnInit {
   @Input()
   nonSelectedGenres: multipleSelectorModel[] = [];
 
+  @Input()
   selectedGenres: multipleSelectorModel[] = [];
 
   @Input()
   nonSelectedMovieTheaters: multipleSelectorModel[] = [];
 
+  @Input()
   selectedMovieTheaters: multipleSelectorModel[] = [];
 
   @Input()
