@@ -3,7 +3,7 @@
         <h2>{{movie.title}}({{releaseDate.getFullYear()}})</h2>
 
         <mat-chip-list>
-            <mat-chip [routerLink]="['movies/filter']" [queryParams]="{genreId: genre.id}"
+            <mat-chip [routerLink]="['/movies/filter/']" [queryParams]="{genreId: genre.id}"
                 *ngFor="let genre of movie.genres">
                 {{genre.name}}
             </mat-chip>
