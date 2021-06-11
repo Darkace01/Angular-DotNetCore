@@ -26,6 +26,10 @@ export class MoviesService {
     return this.http.get<homeDTO>(this.apiURL);
   }
 
+  public delete(id: number) {
+    return this.http.delete(`${this.apiURL}/${id}`);
+  }
+
   public putGet(id: number): Observable<MoviePutGetDTO> {
     return this.http.get<MoviePutGetDTO>(`${this.apiURL}/putget/${id}`);
   }

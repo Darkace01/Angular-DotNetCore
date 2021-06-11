@@ -11,13 +11,21 @@ export class HomeComponent implements OnInit {
   constructor(private movieService: MoviesService) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.movieService.getHomePageMovies().subscribe(homeDTO => {
       this.moviesFutureReleases = homeDTO.upcomingReleases;
       this.moviesInTheater = homeDTO.inTheaters
-    })
+    });
   }
 
   moviesInTheater: any;
   moviesFutureReleases: any;
+
+  onDelete() {
+    this.loadData();
+  }
 
 }
