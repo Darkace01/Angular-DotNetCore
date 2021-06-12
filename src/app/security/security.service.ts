@@ -11,6 +11,6 @@ export class SecurityService {
     return true;
   }
   getRole(): string {
-    return 'user';
+    return 'admin';
   }
 }
