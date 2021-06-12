@@ -16,6 +16,7 @@ import { EditMoviesComponent } from './movies/edit-movies/edit-movies.component'
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { MovieFilterComponent } from './movies/movie-filter/movie-filter.component';
 import { LoginComponent } from './security/login/login.component';
+import { RegisterComponent } from './security/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'movies/filter', component: MovieFilterComponent },
   { path: 'movies/:id', component: MovieDetailsComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
   { path: '**', redirectTo: '' }
 ];
