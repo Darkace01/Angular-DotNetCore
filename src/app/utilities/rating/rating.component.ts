@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SecurityService } from 'src/app/security/security.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rating',
@@ -7,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private securityService: SecurityService) { }
 
   @Input()
   maxRating = 5;
@@ -32,8 +34,13 @@ export class RatingComponent implements OnInit {
     }
   }
   rate(index: number) {
-    this.selectedRate = index + 1;
-    this.previousRate = this.selectedRate;
-    this.onRating.emit(this.selectedRate);
+    if (this.securityService.isAuthenticated()) {
+      this.selectedRate = index + 1;
+      this.previousRate = this.selectedRate;
+      this.onRating.emit(this.selectedRate);
+    } else {
+      Swal.fire("Error", "You need to login to vote", "error");
+    }
+
   }
 }
