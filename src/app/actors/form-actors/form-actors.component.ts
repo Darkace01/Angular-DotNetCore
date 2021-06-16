@@ -17,7 +17,7 @@ export class FormActorsComponent implements OnInit {
   model!: actorDTO;
 
   @Output()
-  onSaveChanges = new EventEmitter<actorDTO>();
+  onSaveChanges = new EventEmitter<actorCreationDTO>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

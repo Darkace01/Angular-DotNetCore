@@ -19,10 +19,9 @@
     </mat-form-field>
 
     <h4>Select the Poster</h4>
-    <app-input-img [urlCurrentImage]="model?.poster" (onImageSelected)="onImageSelected($event)"></app-input-img>
+    <app-input-img [urlCurrentImage]="model.poster" (onImageSelected)="onImageSelected($event)"></app-input-img>
     <h4>Summary</h4>
-    <app-input-markdown [markdownContent]="model?.summary" (changeMarkdown)="changeMarkdown($event)"
-        [label]="'Summary'">
+    <app-input-markdown [markdownContent]="model.summary" (changeMarkdown)="changeMarkdown($event)" [label]="'Summary'">
     </app-input-markdown>
     <h4>Select The Genres</h4>
 

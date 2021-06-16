@@ -13,7 +13,7 @@ export class InputImgComponent implements OnInit {
   imageBase64!: string;
 
   @Input()
-  urlCurrentImage!: string;
+  urlCurrentImage = '';
 
   @Output()
   onImageSelected = new EventEmitter<File>();

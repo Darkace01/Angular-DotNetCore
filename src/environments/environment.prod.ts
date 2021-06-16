@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'https://localhost:5001/api'
+  apiURL: 'https://kazeem-moviesapi.azurewebsites.net/api'
 };
