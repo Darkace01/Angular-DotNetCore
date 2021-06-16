@@ -28,14 +28,12 @@ export class UserIndexComponent implements OnInit {
   }
 
   make(id: string) {
-    console.log(id);
     this.securityService.makeAdmin(id).subscribe(() => {
       Swal.fire("Success", "The operation was successful", "success");
     });
   }
 
   remove(id: string) {
-    console.log(id);
     this.securityService.removeAdmin(id).subscribe(() => {
       Swal.fire("Success", "The operation was successful", "success");
     });
