@@ -11,9 +11,10 @@ export class SecurityService {
 
   constructor(private http: HttpClient) { }
 
-  private apiURL = environment.apiURL + "/accounts";
-  private tokenKey: string = 'token';
-  private expirationTokenKey: string = 'token-expiration';
+  private readonly apiURL = environment.apiURL + "/accounts";
+  private readonly tokenKey: string = 'token';
+  private readonly expirationTokenKey: string = 'token-expiration';
+  private readonly roleField = "role";
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem(this.tokenKey);
@@ -44,7 +45,7 @@ export class SecurityService {
     localStorage.removeItem(this.expirationTokenKey);
   }
   getRole(): string {
-    return '';
+    return this.getFieldFromJWT(this.roleField);
   }
 
   register(userCredentials: userCredentials): Observable<authenticationResponse> {
